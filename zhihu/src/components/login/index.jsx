@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { NavLink } from 'react-router-dom'
 import './index.scss'
 export default class Login extends Component {
     render() {
@@ -30,8 +31,8 @@ export default class Login extends Component {
                         <div className='login'>登录</div>
                     </div>
                     <div className='l-b-text'>
-                        <div>密码登录</div>
-                        <div>需要帮助</div>
+                        <NavLink to=''>密码登录</NavLink>
+                        <NavLink to='/'>需要帮助</NavLink>
                     </div>
                     <div className='l-bottom'>
                         <p>社交账号登录</p>
