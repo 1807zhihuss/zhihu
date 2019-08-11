@@ -1,46 +1,46 @@
 const linkList = [
     {
-        url: '/1',
+        url: '/tui',
         title: '推荐',
         con:'Tui'
     },
     {
-        url: '/2',
+        url: '/sheng',
         title: '生活',
         con: 'Sheng'
     },
     {
-        url: '/3',
+        url: '/jiao',
         title: '教育',
         con: 'Jiao'
     },
     {
-        url: '/4',
+        url: '/yu',
         title: '娱乐',
         con: 'Yu'
     },
     {
-        url: '/5',
+        url: '/qi',
         title: '汽车',
         con: 'Qi'
     },
     {
-        url: '/6',
+        url: '/jin',
         title: '金融',
         con: 'Jin'
     },
     {
-        url: '/7',
+        url: '/zi',
         title: '职场',
         con: 'Zi'
     },
     {
-        url: '/8',
+        url: '/ke',
         title: '科技',
         con: 'Ke'
     },
     {
-        url: '/9',
+        url: '/ti',
         title: '体育',
         con: 'Ti'
     }

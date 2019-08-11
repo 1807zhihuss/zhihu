@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Header from './header'
 import HeaderTab from './header/header-tab'
-import {Switch,Route} from 'react-router-dom'
+import {Switch,Route,Redirect} from 'react-router-dom'
 import './home.scss'
 import Main from './main'
 export default class index extends Component {
@@ -36,6 +36,7 @@ export default class index extends Component {
                 <main className="home-main">
                     <Switch>
                         <Route path={`${match.path}/:id`} component={Main} />
+                        <Redirect to={`${match.path}/tui`} />
                     </Switch>
                 </main>
             </div>
