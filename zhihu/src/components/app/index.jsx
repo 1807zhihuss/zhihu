@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-
 import Home from '../home'
-import {Switch,Route,Redirect} from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 
 import Xianqing from '../xianqing'
 import Weibo from '../content/weibo'
@@ -17,18 +16,20 @@ export default class app extends Component {
                     <Route path="/login" component={Login} />
                     <Route path="/home" component={Home} />
                     <Route path="/xianqi/:id" component={Xianqing} />
+                    <Route path="/weibo" component={Weibo} />
+
                     <Redirect to='/login'/>
                 </Switch>
                 {/* <Home></Home> */}
-
 
                 {/*二级公共模板 */}
                 {/* <Common /> */}
                 {/* 微博热搜 */}
                 {/* <Weibo /> */}
+                {/* 登录 */}
+                {/* <Login /> */}
 
-
-            </div>
+            </div >
         )
     }
 }
