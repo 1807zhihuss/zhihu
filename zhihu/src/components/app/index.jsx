@@ -15,6 +15,7 @@ export default class app extends Component {
                     {/* 登录 */}
                     <Route path="/login" component={Login} />
                     <Route path="/home" component={Home} />
+                    <Route path="/weibo" component={Weibo} />
                     <Redirect to='/login' />
                 </Switch>
                 {/* <Home></Home> */}
