@@ -1,6 +1,8 @@
 .home-box{
     .home-main{
         width: 100vw;
+    background: #fff;
+
         // height: 200vh;
         // background: pink;
     }
@@ -8,6 +10,10 @@
         height: 5px;
         background-image: linear-gradient(0deg, #fcfcfc, #ebebeb);
     }
+    a{
+        color: #000;
+    }
+
 }
 
 

@@ -11,7 +11,7 @@ export default class index extends Component {
         }
     }
     componentDidMount() {
-        console.log(this.props)
+        // console.log(this.props)
         // axios.get('http://localhost:4500/zhihu').then(res => {
         //     console.log(res.data)
         //     this.setState({data:res.data})
@@ -21,7 +21,7 @@ export default class index extends Component {
 
     }
     listbtn=(id)=>{
-        console.log(id)
+        // console.log(id)
         axios.get('http://localhost:4500/ditail', { params:{ id }}).then(res => {
             // console.log(res.data)
             this.setState({
@@ -36,7 +36,7 @@ export default class index extends Component {
 
         return (
             <div className="mian-cont">
-                <Common />
+                <Common {...this.props} />
             </div>
         )
     }

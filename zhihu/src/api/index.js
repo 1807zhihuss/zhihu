@@ -1,6 +1,6 @@
 import axios from 'axios';
 // 设置默认访问路径
-axios.defaults.baseURL = "http://localhost:4000"
+axios.defaults.baseURL = "http://localhost:4501"
 
 // 请求拦截 响应拦截 Interceptors 拦截器
 axios.interceptors.response.use((res) => {
@@ -10,21 +10,21 @@ axios.interceptors.response.use((res) => {
 })
 
 // 获取登录数据
-export let loginApi = (data) => {
-    console.log(data)
-    return axios.request({
-        url: '/login',
-        method: 'post',
-        data: data,
-    })
-}
+// export let loginApi = (data) => {
+//     console.log(data)
+//     return axios.request({
+//         url: '/login',
+//         method: 'post',
+//         data: data,
+//     })
+// }
 
 // 获取首页内容
 export let shouApi = (data) => {
     console.log(data)
     return axios.request({
-        url: '/shou',
+        url: `/shou?id=${data}`,
         method: 'get',
-        data: data,
+
     })
 }
