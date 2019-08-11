@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import Home from '../home'
-import {Switch,Route,Redirect} from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 
 import Common from '../content/common'
 import Weibo from '../content/weibo'
@@ -16,7 +16,7 @@ export default class app extends Component {
                     {/* 登录 */}
                     <Route path="/login" component={Login} />
                     <Route path="/home" component={Home} />
-                    <Redirect to='/login'/>
+                    <Redirect to='/login' />
                 </Switch>
                 {/* <Home></Home> */}
 
