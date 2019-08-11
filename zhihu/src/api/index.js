@@ -18,3 +18,13 @@ export let loginApi = (data) => {
         data: data,
     })
 }
+
+// 获取首页内容
+export let shouApi = (data) => {
+    console.log(data)
+    return axios.request({
+        url: '/shou',
+        method: 'get',
+        data: data,
+    })
+}

@@ -9,25 +9,15 @@
         position: relative;
         top: 0px;
         left: 0px;
-        .l-h-x{     
-            // 
-            // animation: kay 2s infinite;
+
+       
+        .l-h-x{
             font-size: 40px;
             position: absolute;
             top: 10px;
             right: 15px;
             color:#fff;
         }
-        // @keyframes kay {
-        //     from{
-        //         top:-20px;
-        //         color: black;
-        //     }
-        //     to{
-        //         top:20px;
-        //         color: red;
-        //     }
-        // }
         .l-h-text1{
             width: 100%;
             height: 0.5rem;
@@ -60,7 +50,7 @@
             margin: 0 auto;
             border-bottom:1px solid #ccc;
             .l-h-select1{
-                width: 75px;
+                width: 26%;
                 height: 50px;
                 border: none;
                 outline: none;
@@ -68,7 +58,7 @@
                 margin-left: 10px;
             }
             .l-h-input1{
-                width: 260px;
+                width: 68%;
                 height: 48px;
                 // color:#F1403C;
                 border: none;

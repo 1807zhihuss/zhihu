@@ -1,8 +1,75 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import './index.scss'
+import { loginApi } from '../../api/index'
+
 export default class Login extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            login: {
+                username: '',
+                yan: '',
+                checkbox: true,
+                yanzheng:''
+            }
+        }
+    }
+    Change = ({ target }) => {
+        //
+        const { value, name } = target
+        // checkbox 的判断
+        let change;
+        if (name === 'checkbox') {
+            change = { ...this.state.login, [name]: !this.state.login.checkbox }
+        }
+
+        let login = { ...this.state.login, [name]: value }
+        this.setState({
+            login: name === 'checkbox' ? change : login
+        })
+    }
+    btnDenglu = () => {
+
+        const { username, yan, yanzheng} = this.state.login
+
+        if (username.length < 5 || username.length > 12 || username.length === 0) {
+            alert('请输入正确的手机号')
+            return false
+        }
+        console.log(yanzheng)
+        if (yan.length === 0|| yan != yanzheng) {
+            alert('请输入正确的验证码')
+            return false
+        }
+                alert('登录成功')
+                this.props.history.push('/home')
+
+        // 登录的接口
+        // const { login } = this.state
+        // this.props.history.push('/home')
+        // loginApi(login).then(item => {
+        //     if (item.state.typely) {
+        //         alert('登录成功')
+        //         // this.props.history.push('/home')
+        //     } else {
+        //         alert('请输入正确的用户名或者密码')
+        //     }
+        // })
+
+    }
+    btnYan=()=>{
+        const suiji = Math.floor(Math.random() * (1000 - 10000)) + 10000;
+        console.log(suiji)
+
+        this.setState({
+            login: { ...this.state.login, yanzheng:suiji}
+        })
+    }
+
     render() {
+        const { username, yan, yanzheng } = this.state.login
+
         return (
             <div className='login-container'>
                 <header className='login-header'>
@@ -19,16 +86,24 @@ export default class Login extends Component {
                             <option value="香港 +852">香港 +852</option>
                             <option value="台湾 +886">台湾 +886</option>
                         </select>
-                        <input type="text" placeholder='请输入手机号' className='l-h-input1' />
+                        <input type="text"
+                            value={username}
+                            name="username"
+                            onChange={this.Change}
+                        placeholder='请输入手机号' className='l-h-input1' />
                     </div>
                     <div className='l-pass '>
-                        <input type="text" placeholder='请输入6位验证码' className='l-h-input2' />
-                        <div className='l-send'>发送验证码</div>
+                        <input type="text"
+                            value={yan}
+                            name="yan"
+                            onChange={this.Change}
+                         placeholder='请输入6位验证码' className='l-h-input2' />
+                        <div className='l-send' onClick={this.btnYan} >发送验证码</div>
                     </div>
                     <div className='l-text'>
                         <p>未注册手机验证后自动登录</p>
                         <p>注册即同意《知乎协议》《隐私保护指引》</p>
-                        <div className='login'>登录</div>
+                        <div className='login' onClick={this.btnDenglu} >登录</div>
                     </div>
                     <div className='l-b-text'>
                         <NavLink to=''>密码登录</NavLink>
