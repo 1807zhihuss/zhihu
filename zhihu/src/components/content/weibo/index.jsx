@@ -1,5 +1,6 @@
+/* eslint-disable jsx-a11y/accessible-emoji */
 import React, { Component } from 'react'
-import { } from 'react-router-dom'
+import {NavLink } from 'react-router-dom'
 import './index.scss'
 import img from './1.png'
 export default class Weibo extends Component {
@@ -13,9 +14,9 @@ export default class Weibo extends Component {
                             🔍
                             <input type="text" className='inp' placeholder='搜索知乎内容' />
                         </div>
-                        <div className="size-box">
+                        <NavLink to="/home" className="size-box">
                             取消
-                    </div>
+                        </NavLink>
                     </div>
                 </header>
                 <img src={img} alt="" />
