@@ -1,22 +1,22 @@
 import React, { Component } from "react"
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import "./index.scss"
-import { shouApi} from '../../../api/index'
+import { shouApi } from '../../../api/index'
 
 export default class Common extends Component {
-    constructor(props){
+    constructor(props) {
         super()
-        this.state={
-            id:'',
-            lists:[]
+        this.state = {
+            id: '',
+            lists: []
         }
 
     }
-    componentDidMount(){
+    componentDidMount() {
         const { id } = this.props.match.params
-        shouApi(id).then(res=>{
+        shouApi(id).then(res => {
             // console.log(res)
-            this.setState(()=>{
+            this.setState(() => {
                 return {
                     id,
                     lists: res.list
@@ -24,31 +24,31 @@ export default class Common extends Component {
             })
         })
     }
-    componentDidUpdate(){
+    componentDidUpdate() {
         const { id } = this.props.match.params
-        if (id!==this.state.id){
+        if (id !== this.state.id) {
             shouApi(id).then(res => {
-            this.setState({
-                id,
-                lists: res.list
+                this.setState({
+                    id,
+                    lists: res.list
+                })
             })
-        })
         }
 
     }
     render() {
-        const { lists} =this.state
+        const { lists } = this.state
         return (
             <div className="cxl-name">
                 <div className="contentbox">
                     {
-                        lists&&lists.map((item, index) => {
+                        lists && lists.map((item, index) => {
                             return <NavLink to={{
-                                pathname:`/xianqi/${item.id}`,
+                                pathname: `/xianqi/${item.id}`,
                                 data: this.props.match.params.id
-                                }} key={index} className="block-tetx" >
+                            }} key={index} className="block-tetx" >
                                 <p className="title">{item.title}</p>
-                                <img src={item.img} alt=""/>
+                                <img src={item.img} alt="" />
                                 <p className="content">{item.content}</p>
                             </NavLink>
                         })

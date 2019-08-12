@@ -1,10 +1,6 @@
 import React, { Component,Suspense } from 'react'
 
 import { Switch, Route, Redirect } from 'react-router-dom'
-// import Home from '../home'
-// import Xianqing from '../xianqing'
-// import Weibo from '../content/weibo/index'
-// import Login from '../login'
 
 const Home = React.lazy(()=>import('../home'))
 const Weibo = React.lazy(() => import('../content/weibo/index'))
