@@ -37,8 +37,10 @@ export default class Login extends Component {
             alert('请输入正确的手机号')
             return false
         }
-        // console.log(yanzheng)
-        if (yan.length === 0|| yan !== yanzheng) {
+        console.log(typeof yan)
+        console.log(typeof yanzheng)
+
+        if (yan.length === 0 || Number(yan) !== yanzheng) {
             alert('请输入正确的验证码')
             return false
         }
@@ -69,7 +71,6 @@ export default class Login extends Component {
 
     render() {
         const { username, yan} = this.state.login
-
         return (
             <div className='login-container'>
                 <header className='login-header'>
