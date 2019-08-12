@@ -1,11 +1,10 @@
+/* eslint-disable jsx-a11y/accessible-emoji */
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
-// import LinkList from '../list'
 import './header.scss'
 export default class index extends Component {
     render() {
-        // console.log()
-        // const { match } = this.props
+
         return (
             <header className="header-box ">
                 <div className='header-top flex flex-ju'>
