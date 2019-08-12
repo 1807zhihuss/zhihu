@@ -15,7 +15,7 @@ export default class Common extends Component {
     componentDidMount(){
         const { id } = this.props.match.params
         shouApi(id).then(res=>{
-            console.log(res)
+            // console.log(res)
             this.setState(()=>{
                 return {
                     id,
@@ -43,7 +43,10 @@ export default class Common extends Component {
                 <div className="contentbox">
                     {
                         lists&&lists.map((item, index) => {
-                            return <NavLink to={`/xianqi/${item.id}`} key={index} className="block-tetx" >
+                            return <NavLink to={{
+                                pathname:`/xianqi/${item.id}`,
+                                data: this.props.match.params.id
+                                }} key={index} className="block-tetx" >
                                 <p className="title">{item.title}</p>
                                 <img src={item.img} alt=""/>
                                 <p className="content">{item.content}</p>

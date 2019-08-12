@@ -3,7 +3,7 @@ import Home from '../home'
 import { Switch, Route, Redirect } from 'react-router-dom'
 
 import Xianqing from '../xianqing'
-import Weibo from '../content/weibo'
+import Weibo from '../content/weibo/index'
 
 import Login from '../login'
 
@@ -20,15 +20,6 @@ export default class app extends Component {
 
                     <Redirect to='/login'/>
                 </Switch>
-                {/* <Home></Home> */}
-
-                {/*二级公共模板 */}
-                {/* <Common /> */}
-                {/* 微博热搜 */}
-                {/* <Weibo /> */}
-                {/* 登录 */}
-                {/* <Login /> */}
-
             </div >
         )
     }

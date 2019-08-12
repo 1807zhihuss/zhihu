@@ -22,7 +22,7 @@ function getIPAdress(os) {
 const IPv4 = getIPAdress(os)
 
 
-app.listen(4501, () => { console.log('服务器启动：http://localhost:4501; 本机ip：http://' + IPv4) })
+app.listen(4502, () => { console.log('服务器启动：http://localhost:4502; 本机ip：http://' + IPv4) })
 
 
 // 解决跨域可以自己设置可以使用中间件 cors
@@ -57,14 +57,25 @@ app.get('/', (req, res) => {
 // 首页数据
 const shouList = require('./datalist/index.json')
 app.get('/shou',(req,res)=>{
-    var page = req.query.id ? req.query.id : 'sheng'
+    var page = req.query.id ? req.query.id : 'tui'
     let list = shouList[page]
-    console.log(req.query)
+    // console.log(req.query)
     res.json({
         list
     })
 })
 
+// 详情数据
+const xiangqing = require('./xqdata/xiangqing.json')
+app.get('/xiang', (req, res) => {
+    var { page,id} = req.query
+
+    let list = xiangqing[page][id]
+    // console.log(page, id, list)
+    res.json({
+        list
+    })
+})
 
 
 
