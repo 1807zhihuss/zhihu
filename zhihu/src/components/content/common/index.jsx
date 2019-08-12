@@ -1,30 +1,56 @@
 import React, { Component } from "react"
+import {NavLink} from 'react-router-dom';
 import "./index.scss"
-const lists = [
-    {
-        "title": "《一出好戏》中有哪些细思恐极的细节？",
-        "content": "1、大胸妹子是《白夜追凶》的女二，那个性感仗义的老板娘！2、珊珊的针织外套到了后期已经严重起球，下摆有若干破洞了。细节好评。3、女人们是怎么解决例假问题的？用不干净的布条做成卫生带吗？岛上肥皂稀缺，卫生带肯定没法洗，那通通都会有妇科病吧？4、挺希望张总这个角色由黄磊演，精明能干、脑子灵活、擅长演讲、爱女如命。黄磊可以挑战一下反面角色嘛，毕竟年轻时演戏那么灵。多多还可以客串一下那个唱恐怖童谣的女儿！"
-    },
-    {
-        "title": "《一出好戏》中有哪些细思恐极的细节？",
-        "content": "1、大胸妹子是《白夜追凶》的女二，那个性感仗义的老板娘！2、珊珊的针织外套到了后期已经严重起球，下摆有若干破洞了。细节好评。3、女人们是怎么解决例假问题的？用不干净的布条做成卫生带吗？岛上肥皂稀缺，卫生带肯定没法洗，那通通都会有妇科病吧？4、挺希望张总这个角色由黄磊演，精明能干、脑子灵活、擅长演讲、爱女如命。黄磊可以挑战一下反面角色嘛，毕竟年轻时演戏那么灵。多多还可以客串一下那个唱恐怖童谣的女儿！"
-    },
-    {
-        "title": "《一出好戏》中有哪些细思恐极的细节？",
-        "content": "1、大胸妹子是《白夜追凶》的女二，那个性感仗义的老板娘！2、珊珊的针织外套到了后期已经严重起球，下摆有若干破洞了。细节好评。3、女人们是怎么解决例假问题的？用不干净的布条做成卫生带吗？岛上肥皂稀缺，卫生带肯定没法洗，那通通都会有妇科病吧？4、挺希望张总这个角色由黄磊演，精明能干、脑子灵活、擅长演讲、爱女如命。黄磊可以挑战一下反面角色嘛，毕竟年轻时演戏那么灵。多多还可以客串一下那个唱恐怖童谣的女儿！"
-    }
-]
+import { shouApi} from '../../../api/index'
+
 export default class Common extends Component {
+    constructor(props){
+        super()
+        this.state={
+            id:'',
+            lists:[]
+        }
+
+    }
+    componentDidMount(){
+        const { id } = this.props.match.params
+        shouApi(id).then(res=>{
+            // console.log(res)
+            this.setState(()=>{
+                return {
+                    id,
+                    lists: res.list
+                }
+            })
+        })
+    }
+    componentDidUpdate(){
+        const { id } = this.props.match.params
+        if (id!==this.state.id){
+            shouApi(id).then(res => {
+            this.setState({
+                id,
+                lists: res.list
+            })
+        })
+        }
+
+    }
     render() {
+        const { lists} =this.state
         return (
             <div className="cxl-name">
                 <div className="contentbox">
                     {
-                        lists.map((item, index) => {
-                            return <div key={index} className="block-tetx">
+                        lists&&lists.map((item, index) => {
+                            return <NavLink to={{
+                                pathname:`/xianqi/${item.id}`,
+                                data: this.props.match.params.id
+                                }} key={index} className="block-tetx" >
                                 <p className="title">{item.title}</p>
+                                <img src={item.img} alt=""/>
                                 <p className="content">{item.content}</p>
-                            </div>
+                            </NavLink>
                         })
                     }
                 </div>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import './index.scss'
-import { loginApi } from '../../api/index'
+// import { loginApi } from '../../api/index'
 
 export default class Login extends Component {
     constructor(props) {
